@@ -1,10 +1,53 @@
-import { Component } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'products-product-page',
   templateUrl: './product-page.component.html',
   styleUrl: './product-page.component.css'
 })
-export class ProductPageComponent {
+export class ProductPageComponent implements OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
 
+  public isProductVisible: boolean = false;
+  public currentPrice: number = 10;
+
+  constructor() {
+    console.log('constructor');
+  }
+
+  ngOnInit(): void {
+    console.log('OnInit');
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log({changes});
+    console.log('OnChanges');
+  }
+
+  ngDoCheck(): void {
+    console.log('DoCheck');
+  }
+
+  ngAfterContentInit(): void {
+    console.log('AfterContentInit');
+  }
+
+  ngAfterContentChecked(): void {
+    console.log('AfterContentChecked');
+  }
+
+  ngAfterViewInit(): void {
+    console.log('AfterViewInit');
+  }
+
+  ngAfterViewChecked(): void {
+    console.log('AfterViewChecked');
+  }
+
+  ngOnDestroy(): void {
+    console.log('OnDestroy');
+  }
+
+  increasePrice(): void {
+    this.currentPrice++;
+  }
 }
